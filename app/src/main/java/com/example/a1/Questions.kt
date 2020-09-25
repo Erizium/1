@@ -6,5 +6,6 @@ class Questions(
     var optionOne : String,
     var OptionTwo : String,
     var optionThree : String,
-    var optionFour : String) {
+    var optionFour : String,
+    var correctAnswer : Int) {
 }

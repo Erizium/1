@@ -2,21 +2,32 @@ package com.example.a1
 
 object Constants {
 
+    var questionList = mutableListOf<Questions>()
+
+    init {
+        createQuestions()
+    }
+
+    fun createQuestions() {
         val questionOne = Questions(
             "What is this?",
             R.drawable.zebra,
             "Horse",
             "Zebra",
             "Koala",
-            "Mohawk")
+            "Mohawk",
+            2)
+        questionList.add(questionOne)
 
         val questionTwo = Questions(
-            questionOne.question,
+            "What is this?",
             R.drawable.boulder,
             "Grass",
             "Tree",
             "Boulder",
-            "Cave")
+            "Cave",
+            3)
+        questionList.add(questionTwo)
 
         val questionThree = Questions(
             "Most popular mmo role?",
@@ -24,6 +35,8 @@ object Constants {
             "Tank",
             "Healer",
             "DPS",
-            "Spear")
-
+            "Spear",
+            3)
+        questionList.add(questionThree)
     }
+}
