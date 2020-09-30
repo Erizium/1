@@ -5,54 +5,57 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.TextView
+
 
 import kotlinx.android.synthetic.main.activity_question.*
 
 class QuestionActivity : AppCompatActivity(){
 
-
-    private var currentPosition: Int = 1
-    private var mQuestionList: ArrayList<Questions>? = null
+    val questionList = QuestionList()
+    var currentQuestion: Questions? = null
+    var currentPosition: Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
 
-        mQuestionList = Constants.getQuestions()
-
-        val currentPosition = 1
-        val question = mQuestionList!![currentPosition -1]
-
-        questionText.text = question!!.question
-        questionImage.setImageResource(question.image)
-        option_one.text = question.optionOne
-        option_two.text = question.OptionTwo
-        option_three.text = question.optionThree
-        option_four.text = question.optionFour
 
         setQuestion()
     }
 
     fun setQuestion(){
 
-        currentPosition = 1
-        val question = mQuestionList!![currentPosition -1]
+        currentQuestion = questionList.questionList[currentPosition]
 
-        questionText.text = question!!.question
-        questionImage.setImageResource(question.image)
-        option_one.text = question.optionOne
-        option_two.text = question.OptionTwo
-        option_three.text = question.optionThree
-        option_four.text = question.optionFour
+        questionText.text = currentQuestion!!.question
+        questionImage.setImageResource(currentQuestion!!.image)
+        option_one.text = currentQuestion?.optionOne
+        option_two.text = currentQuestion?.OptionTwo
+        option_three.text = currentQuestion?.optionThree
+        option_four.text = currentQuestion?.optionFour
+
+        currentPosition++
     }
 
+    fun buttonPressed(view: View) {
+        var button = view as Button
+
+        if(currentPosition >= questionList.questionList.size) {
+            if (button.text == currentQuestion?.correctAnswer) {
+                setQuestion()
+            }
+        }
+
 
     }
+
 
 
 }
+
+
+
 
 
 

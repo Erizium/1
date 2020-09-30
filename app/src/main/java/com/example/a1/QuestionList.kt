@@ -1,44 +1,43 @@
 package com.example.a1
 
-object Constants {
+class QuestionList() {
 
- //   var questionList = mutableListOf<Questions>()
-    fun getQuestions() : ArrayList<Questions> {
-     val questionsList = ArrayList<Questions>()
+    var questionList = mutableListOf<Questions>()
+
+    init {
+        getQuestions()
+    }
+
+    fun getQuestions() {
 
         var questionOne = Questions(
-            1,
             "What is this?",
             R.drawable.zebra,
             "Horse",
             "Zebra",
             "Koala",
             "Mohawk",
-            2)
-        questionsList.add(questionOne)
+            "Zebra")
+        questionList.add(questionOne)
 
         val questionTwo = Questions(
-            2,
             "What is this?",
             R.drawable.boulder,
             "Grass",
             "Tree",
             "Boulder",
             "Cave",
-            3)
-        questionsList.add(questionTwo)
+            "Boulder")
+        questionList.add(questionTwo)
 
         val questionThree = Questions(
-            3,
             "Most popular mmo role?",
-            0,
+            R.drawable.hero3,
             "Tank",
             "Healer",
             "DPS",
             "Spear",
-            3)
-        questionsList.add(questionThree)
-
-     return questionsList
+            "DPS")
+        questionList.add(questionThree)
     }
 }
