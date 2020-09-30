@@ -1,5 +1,6 @@
 package com.example.a1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -41,11 +42,14 @@ class QuestionActivity : AppCompatActivity(){
     fun buttonPressed(view: View) {
         var button = view as Button
 
-        if(currentPosition >= questionList.questionList.size) {
             if (button.text == currentQuestion?.correctAnswer) {
                 setQuestion()
+            }else{
+                var failScreen = Intent(this, WrongAnswerActivity::class.java)
+                startActivity(failScreen)
             }
-        }
+
+
 
 
     }
