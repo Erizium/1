@@ -30,7 +30,9 @@ class QuestionActivity : AppCompatActivity(){
         currentQuestion = questionList.questionList[currentPosition]
 
         questionText.text = currentQuestion!!.question
+        questionInfo.text = currentQuestion!!.info
         questionImage.setImageResource(currentQuestion!!.image)
+        questionBackground.setBackgroundResource(currentQuestion!!.background)
         option_one.text = currentQuestion?.optionOne
         option_two.text = currentQuestion?.OptionTwo
         option_three.text = currentQuestion?.optionThree

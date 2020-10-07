@@ -11,7 +11,6 @@ class WrongAnswerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wrong_answer)
 
-
     }
 
     fun restart(restart: View){
