@@ -1,20 +1,19 @@
 package com.example.a1
 
-class QuestionList() {
+class QuestionListSavanna() {
 
     var questionList = mutableListOf<Questions>()
 
     init {
-        getQuestions()
+        getZebraQuestions()
     }
 
-    fun getQuestions() {
+    fun getZebraQuestions() {
 
         var questionOne = Questions(
             "What is this?",
             "",
             R.drawable.zebra,
-            0,
             R.drawable.savanna,
             "Horse",
             "Zebra",
@@ -25,9 +24,8 @@ class QuestionList() {
 
         var questionTwo = Questions(
             "What's the zebras natural habitat?",
-            "",
-            questionOne.image,
-            0,
+            "If you get this wrong...",
+            R.drawable.fullzebra,
             questionOne.background,
             "Desert",
             "Grove",
@@ -39,8 +37,7 @@ class QuestionList() {
         var questionThree = Questions(
             "How fast can they run?",
             "Answers are in km/h",
-            questionOne.image,
-            0,
+            R.drawable.zebrarun,
             questionOne.background,
             "64",
             "60",
@@ -52,11 +49,10 @@ class QuestionList() {
         var questionFour = Questions(
             "What's their most common food?",
             "",
-            questionOne.image,
-            0,
+            R.drawable.zebraeat,
             questionOne.background,
             "Leaves",
-            "Twigs",
+            "Hay",
             "Grass",
             "Insects",
             "Grass")
@@ -66,7 +62,6 @@ class QuestionList() {
             "What is the average weight of \nof a full grown male zebra?",
             "Answers are in kg",
             questionOne.image,
-            0,
             questionOne.background,
             "230",
             "450",
@@ -74,43 +69,5 @@ class QuestionList() {
             "320",
             "320")
         questionList.add(questionFive)
-/*
-        val questionFour = Questions(
-            "What is this?",
-            R.drawable.boulder,
-            0,
-            R.drawable.forest,
-            "Grass",
-            "Tree",
-            "Boulder",
-            "Cave",
-            "Boulder")
-        questionList.add(questionFour)
-
-        var questionFive = Questions(
-            "How many square feet does the \n biggest" +
-                    "rock in the world cover?",
-            0,
-            0,
-            questionFour.background,
-            "500",
-            "900",
-            "3700",
-            "5800",
-            "5800")
-        questionList.add(questionFive)
-
-        val questionSix = Questions(
-            "Most popular mmo role?",
-            R.drawable.hero3,
-            0,
-            0,
-            "Tank",
-            "Healer",
-            "DPS",
-            "Spear",
-            "DPS")
-        questionList.add(questionSix)
-    */
     }
 }

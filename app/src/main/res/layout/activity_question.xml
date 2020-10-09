@@ -10,7 +10,7 @@
         android:id="@+id/questionBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/savanna"
+        android:background="@drawable/startbg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,8 +18,9 @@
 
     <ImageView
         android:id="@+id/questionImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="195dp"
+        android:layout_height="194dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,9 +33,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="88dp"
         android:onClick="buttonPressed"
-        android:text="Horse"
+        android:text="Savanna"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionImage" />
 
@@ -43,9 +45,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="88dp"
         android:onClick="buttonPressed"
-        android:text="Zebra"
+        android:text="Forest"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/option_one"
         app:layout_constraintTop_toBottomOf="@+id/questionImage" />
 
@@ -54,10 +57,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="68dp"
         android:onClick="buttonPressed"
         android:text="Koala"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/option_one"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option_one" />
 
@@ -65,10 +70,11 @@
         android:id="@+id/option_four"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="72dp"
         android:onClick="buttonPressed"
         android:text="Mohawk"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/option_two"
@@ -78,14 +84,17 @@
         android:id="@+id/questionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:shadowColor="#CC2727"
-        android:text="What is this?"
+        android:text="What kind of questions \n do you want?"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         android:textSize="24sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
 
     <TextView
         android:id="@+id/questionInfo"
@@ -94,5 +103,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionText" />
+
+    <Button
+        android:id="@+id/savannaQuiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="buttonPressed"
+        android:text="Savanna"
+        app:layout_constraintBottom_toTopOf="@+id/option_three"
+        app:layout_constraintEnd_toEndOf="@+id/option_one"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/option_one" />
+
+    <Button
+        android:id="@+id/forestQuiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="buttonPressed"
+        android:text="Forest"
+        app:layout_constraintBottom_toTopOf="@+id/option_four"
+        app:layout_constraintStart_toStartOf="@+id/option_two"
+        app:layout_constraintTop_toBottomOf="@+id/option_two" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
