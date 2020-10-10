@@ -8,7 +8,6 @@ class QuestionListForest {
         getForestQuestions()
     }
 
-
     fun getForestQuestions(){
         var questionOne = Questions(
             "Which country contains the majority \nof the Amazon Rainforest?",
@@ -34,6 +33,16 @@ class QuestionListForest {
             "60 %")
         questionList2.add(questionTwo)
 
-
+        var questionThree = Questions(
+            "How many percent of oxygen does the \nBrazil section produce?",
+            "",
+            0,
+            questionOne.background,
+            "20 %",
+            "12 %",
+            "6 %",
+            "10 %",
+            "12 %")
+        questionList2.add(questionThree)
     }
 }
