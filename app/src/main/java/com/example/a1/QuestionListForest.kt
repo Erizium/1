@@ -8,7 +8,6 @@ class QuestionListForest {
         getForestQuestions()
     }
 
-
     fun getForestQuestions(){
         var questionOne = Questions(
             "Which country contains the majority \nof the Amazon Rainforest?",
@@ -34,6 +33,40 @@ class QuestionListForest {
             "60 %")
         questionList2.add(questionTwo)
 
+        var questionThree = Questions(
+            " How many percent of the oxygen\n does the Brazil section produce?",
+            "Roughly",
+            0,
+            questionOne.background,
+            "20 %",
+            "12 %",
+            "6 %",
+            "10 %",
+            "12 %")
+        questionList2.add(questionThree)
 
+        var questionFour = Questions(
+            " What is producing the most\n most of oxygen there?  ",
+            "",
+            0,
+            questionOne.background,
+            "Plants",
+            "Fungi",
+            "Animal",
+            "Dirt",
+            "Plants")
+        questionList2.add(questionFour)
+
+        var questionFive = Questions(
+            " How is the oxygen produced\n through plants?",
+            "Through",
+            0,
+            questionOne.background,
+            "Sodium",
+            "Uranium",
+            "Absorbtion",
+            "Photosynthesis",
+            "Photosynthesis")
+        questionList2.add(questionFive)
     }
 }

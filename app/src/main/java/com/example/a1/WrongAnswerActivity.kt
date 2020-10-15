@@ -15,11 +15,12 @@ class WrongAnswerActivity : AppCompatActivity() {
 
     fun restart(restart: View){
 
-        var intent = Intent(this, QuestionActivity::class.java)
-        startActivity(intent)
+        var restart = Intent(this, QuestionActivity::class.java)
+        startActivity(restart)
     }
 
     fun quit(quit: View){
-
+        var quit = Intent(this,MainActivity::class.java)
+        startActivity(quit)
     }
 }

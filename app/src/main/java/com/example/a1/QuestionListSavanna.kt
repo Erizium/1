@@ -36,14 +36,14 @@ class QuestionListSavanna() {
 
         var questionThree = Questions(
             "How fast can they run?",
-            "Answers are in km/h",
+            "",
             R.drawable.zebrarun,
             questionOne.background,
-            "64",
-            "60",
-            "55",
-            "47",
-            "64")
+            "64 km/h",
+            "60 km/h",
+            "55 km/h",
+            "47 km/h",
+            "64 km/h")
         questionList.add(questionThree)
 
         var questionFour = Questions(
@@ -60,14 +60,14 @@ class QuestionListSavanna() {
 
         var questionFive = Questions(
             "What is the average weight of \nof a full grown male zebra?",
-            "Answers are in kg",
+            "",
             questionOne.image,
             questionOne.background,
-            "230",
-            "450",
-            "603",
-            "320",
-            "320")
+            "230 kg",
+            "450 kg",
+            "603 kg",
+            "320 kg",
+            "320 kg")
         questionList.add(questionFive)
     }
 }

@@ -58,6 +58,7 @@ class QuestionActivity : AppCompatActivity(){
         option_four.text = currentQuestion?.optionFour
         currentPosition++
     }
+
     fun setForestQuestions(){
         currentQuestion = questionList2.questionList2[currentPosition]
         questionText.text = currentQuestion!!.question
