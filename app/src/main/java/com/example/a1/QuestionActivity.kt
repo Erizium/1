@@ -25,6 +25,7 @@ class QuestionActivity : AppCompatActivity(){
             setZebraQuestions()
             savannaQuiz.setVisibility(View.INVISIBLE)
             forestQuiz.setVisibility(View.INVISIBLE)
+
             option_one.setVisibility(View.VISIBLE)
             option_two.setVisibility(View.VISIBLE)
             option_three.setVisibility(View.VISIBLE)
@@ -36,6 +37,7 @@ class QuestionActivity : AppCompatActivity(){
             type += 1
             savannaQuiz.setVisibility(View.INVISIBLE)
             forestQuiz.setVisibility(View.INVISIBLE)
+
             option_one.setVisibility(View.VISIBLE)
             option_two.setVisibility(View.VISIBLE)
             option_four.setVisibility(View.VISIBLE)
