@@ -3,13 +3,14 @@ package com.example.a1
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 
 
 import kotlinx.android.synthetic.main.activity_question.*
 
-class QuestionActivity : AppCompatActivity(){
+class QuestionActivity : AppCompatActivity() {
 
     val questionList = QuestionListSavanna()
     val questionList2 = QuestionListForest()
@@ -46,7 +47,7 @@ class QuestionActivity : AppCompatActivity(){
         }
     }
 
-    fun setZebraQuestions(){
+    fun setZebraQuestions() {
         currentQuestion = questionList.questionList[currentPosition]
         questionText.text = currentQuestion!!.question
         questionInfo.text = currentQuestion!!.info
@@ -59,7 +60,7 @@ class QuestionActivity : AppCompatActivity(){
         currentPosition++
     }
 
-    fun setForestQuestions(){
+    fun setForestQuestions() {
         currentQuestion = questionList2.questionList2[currentPosition]
         questionText.text = currentQuestion!!.question
         questionInfo.text = currentQuestion!!.info
@@ -69,29 +70,47 @@ class QuestionActivity : AppCompatActivity(){
         option_two.text = currentQuestion?.OptionTwo
         option_three.text = currentQuestion?.optionThree
         option_four.text = currentQuestion?.optionFour
+
         currentPosition++
     }
 
     fun buttonPressed(view: View) {
         var button = view as Button
+        if (currentPosition < questionList.questionList.size) {
+            if (type == 0) {
+                if (button.text == currentQuestion?.correctAnswer) {
 
-        if(type == 0) {
-            if (button.text == currentQuestion?.correctAnswer) {
-                setZebraQuestions()
+                    setZebraQuestions()
+                } else {
+                    wrongAnswer()
+                }
             } else {
-                var failScreen = Intent(this, WrongAnswerActivity::class.java)
-                startActivity(failScreen)
+                if (button.text == currentQuestion?.correctAnswer) {
+
+                    setForestQuestions()
+                } else {
+                    wrongAnswer()
+                }
             }
-        }else{
-            if (button.text == currentQuestion?.correctAnswer) {
-                setForestQuestions()
-            } else {
-                var failScreen = Intent(this, WrongAnswerActivity::class.java)
-                startActivity(failScreen)
+        } else {
+            if(button.text != currentQuestion?.correctAnswer){
+                wrongAnswer()
+                return
+
             }
+            val end = Intent(this, FinishActivity::class.java)
+            startActivity(end)
         }
     }
+    fun wrongAnswer(){
+        val wrong = Intent(this, WrongAnswerActivity::class.java)
+        startActivity(wrong)
+    }
+    fun scoreAdd(){
+
+    }
 }
+
 
 
 

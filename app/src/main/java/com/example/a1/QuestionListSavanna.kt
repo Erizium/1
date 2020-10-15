@@ -1,6 +1,6 @@
 package com.example.a1
 
-class QuestionListSavanna() {
+open class QuestionListSavanna() {
 
     var questionList = mutableListOf<Questions>()
 
@@ -24,7 +24,7 @@ class QuestionListSavanna() {
 
         var questionTwo = Questions(
             "What's the zebras natural habitat?",
-            "If you get this wrong...",
+            "Do not look at the background.",
             R.drawable.fullzebra,
             questionOne.background,
             "Desert",

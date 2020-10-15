@@ -24,7 +24,7 @@ class QuestionListForest {
         var questionTwo = Questions(
             "How much of the forest is \ncontained within Brazil?",
             "",
-            0,
+            R.drawable.brazil,
             questionOne.background,
             "40 %",
             "70 %",
@@ -36,7 +36,7 @@ class QuestionListForest {
         var questionThree = Questions(
             " How many percent of the oxygen\n does the Brazil section produce?",
             "Roughly",
-            0,
+            R.drawable.cloudo2,
             questionOne.background,
             "20 %",
             "12 %",
@@ -48,7 +48,7 @@ class QuestionListForest {
         var questionFour = Questions(
             " What is producing the most\n most of oxygen there?  ",
             "",
-            0,
+            R.drawable.cloudo2,
             questionOne.background,
             "Plants",
             "Fungi",
@@ -60,7 +60,7 @@ class QuestionListForest {
         var questionFive = Questions(
             " How is the oxygen produced\n through plants?",
             "Through",
-            0,
+            R.drawable.tree,
             questionOne.background,
             "Sodium",
             "Uranium",
