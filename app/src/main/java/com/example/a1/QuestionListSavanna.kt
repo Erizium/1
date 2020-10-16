@@ -24,7 +24,7 @@ open class QuestionListSavanna() {
 
         var questionTwo = Questions(
             "What's the zebras natural habitat?",
-            "Do not look at the background.",
+            "Do not look at the background",
             R.drawable.fullzebra,
             questionOne.background,
             "Desert",
@@ -36,7 +36,7 @@ open class QuestionListSavanna() {
 
         var questionThree = Questions(
             "How fast can they run?",
-            "",
+            "We can run at the same speed as tigers",
             R.drawable.zebrarun,
             questionOne.background,
             "64 km/h",
@@ -48,7 +48,7 @@ open class QuestionListSavanna() {
 
         var questionFour = Questions(
             "What's their most common food?",
-            "",
+            "*Nom nom*",
             R.drawable.zebraeat,
             questionOne.background,
             "Leaves",
@@ -60,7 +60,7 @@ open class QuestionListSavanna() {
 
         var questionFive = Questions(
             "What is the average weight of \nof a full grown male zebra?",
-            "",
+            "We're not that heavy...",
             questionOne.image,
             questionOne.background,
             "230 kg",
