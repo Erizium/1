@@ -44,7 +44,7 @@ class QuestionListForest {
             "10 %",
             "12 %")
         questionList2.add(questionThree)
-//hej
+
         var questionFour = Questions(
             " What is producing the most\n most of oxygen there?  ",
             "",

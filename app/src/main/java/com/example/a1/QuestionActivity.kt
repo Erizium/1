@@ -1,6 +1,7 @@
 package com.example.a1
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -46,6 +47,7 @@ class QuestionActivity : AppCompatActivity() {
             option_three.setVisibility(View.VISIBLE)
             questionImage.setVisibility(View.VISIBLE)
             questionCount.setVisibility(View.VISIBLE)
+            scoreCounter.setVisibility(View.VISIBLE)
         }
     }
 
@@ -60,7 +62,7 @@ class QuestionActivity : AppCompatActivity() {
         option_three.text = currentQuestion?.optionThree
         option_four.text = currentQuestion?.optionFour
         questionCount.text = "Question: " + currentPosition.toString()
-     //   scoreCounter
+        scoreCounter.text = "Score: " + scoreCounter.toString()
         currentPosition++
     }
 
@@ -75,7 +77,7 @@ class QuestionActivity : AppCompatActivity() {
         option_three.text = currentQuestion?.optionThree
         option_four.text = currentQuestion?.optionFour
         questionCount.text = "Question: " + currentPosition.toString()
-
+        scoreCounter.text = "Score: " + score.toString()
         currentPosition++
     }
 
@@ -86,31 +88,33 @@ class QuestionActivity : AppCompatActivity() {
             if (type == 0) {
                 if (button.text == currentQuestion?.correctAnswer) {
                     questionCount.text = currentPosition.toString()
+                    score++
                     setZebraQuestions()
                 } else {
-                    wrongAnswer()
+                    questionCount.text = currentPosition.toString()
+                    setZebraQuestions()
                 }
             } else {
                 if (button.text == currentQuestion?.correctAnswer) {
                     questionCount.text = currentPosition.toString()
+                    score++
                     setForestQuestions()
                 } else {
-                    wrongAnswer()
+                    questionCount.text = currentPosition.toString()
+                    setForestQuestions()
                 }
             }
         } else {
-            if(button.text != currentQuestion?.correctAnswer){
-                wrongAnswer()
-                return
-            }
             val end = Intent(this, FinishActivity::class.java)
             startActivity(end)
         }
     }
-    fun wrongAnswer(){
-        val wrong = Intent(this, WrongAnswerActivity::class.java)
-        startActivity(wrong)
+
+    fun colorChange(){
+        questionText.setTextColor(Color.parseColor("#000000"))
+        return
     }
+
 
 }
 
