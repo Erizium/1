@@ -15,6 +15,7 @@ class QuestionActivity : AppCompatActivity() {
     val questionList2 = QuestionListForest()
     var currentQuestion: Questions? = null
     var currentPosition: Int = 1
+    var score = 0
     var type = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +59,8 @@ class QuestionActivity : AppCompatActivity() {
         option_two.text = currentQuestion?.OptionTwo
         option_three.text = currentQuestion?.optionThree
         option_four.text = currentQuestion?.optionFour
-        questionCount.text = currentPosition.toString()
+        questionCount.text = "Question: " + currentPosition.toString()
+     //   scoreCounter
         currentPosition++
     }
 
@@ -73,6 +75,7 @@ class QuestionActivity : AppCompatActivity() {
         option_three.text = currentQuestion?.optionThree
         option_four.text = currentQuestion?.optionFour
         questionCount.text = "Question: " + currentPosition.toString()
+
         currentPosition++
     }
 
