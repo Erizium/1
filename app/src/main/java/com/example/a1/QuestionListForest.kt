@@ -11,7 +11,7 @@ class QuestionListForest {
     fun getForestQuestions(){
         var questionOne = Questions(
             "Which country contains the majority \nof the Amazon Rainforest?",
-            "",
+            "Good Luck",
             R.drawable.brazil,
             R.drawable.forest,
             "Peru",

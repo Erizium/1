@@ -3,7 +3,6 @@ package com.example.a1
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 
@@ -15,7 +14,7 @@ class QuestionActivity : AppCompatActivity() {
     val questionList = QuestionListSavanna()
     val questionList2 = QuestionListForest()
     var currentQuestion: Questions? = null
-    var currentPosition: Int = 0
+    var currentPosition: Int = 1
     var type = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +31,7 @@ class QuestionActivity : AppCompatActivity() {
             option_three.setVisibility(View.VISIBLE)
             option_four.setVisibility(View.VISIBLE)
             questionImage.setVisibility(View.VISIBLE)
+            questionCount.setVisibility(View.VISIBLE)
         }
         forestQuiz.setOnClickListener {
             setForestQuestions()
@@ -44,11 +44,12 @@ class QuestionActivity : AppCompatActivity() {
             option_four.setVisibility(View.VISIBLE)
             option_three.setVisibility(View.VISIBLE)
             questionImage.setVisibility(View.VISIBLE)
+            questionCount.setVisibility(View.VISIBLE)
         }
     }
 
     fun setZebraQuestions() {
-        currentQuestion = questionList.questionList[currentPosition]
+        currentQuestion = questionList.questionList[currentPosition -1]
         questionText.text = currentQuestion!!.question
         questionInfo.text = currentQuestion!!.info
         questionImage.setImageResource(currentQuestion!!.image)
@@ -57,11 +58,12 @@ class QuestionActivity : AppCompatActivity() {
         option_two.text = currentQuestion?.OptionTwo
         option_three.text = currentQuestion?.optionThree
         option_four.text = currentQuestion?.optionFour
+        questionCount.text = currentPosition.toString()
         currentPosition++
     }
 
     fun setForestQuestions() {
-        currentQuestion = questionList2.questionList2[currentPosition]
+        currentQuestion = questionList2.questionList2[currentPosition -1]
         questionText.text = currentQuestion!!.question
         questionInfo.text = currentQuestion!!.info
         questionImage.setImageResource(currentQuestion!!.image)
@@ -70,23 +72,24 @@ class QuestionActivity : AppCompatActivity() {
         option_two.text = currentQuestion?.OptionTwo
         option_three.text = currentQuestion?.optionThree
         option_four.text = currentQuestion?.optionFour
-
+        questionCount.text = "Question: " + currentPosition.toString()
         currentPosition++
     }
 
     fun buttonPressed(view: View) {
         var button = view as Button
-        if (currentPosition < questionList.questionList.size) {
+
+        if (currentPosition <= questionList.questionList.size) {
             if (type == 0) {
                 if (button.text == currentQuestion?.correctAnswer) {
-
+                    questionCount.text = currentPosition.toString()
                     setZebraQuestions()
                 } else {
                     wrongAnswer()
                 }
             } else {
                 if (button.text == currentQuestion?.correctAnswer) {
-
+                    questionCount.text = currentPosition.toString()
                     setForestQuestions()
                 } else {
                     wrongAnswer()
@@ -96,7 +99,6 @@ class QuestionActivity : AppCompatActivity() {
             if(button.text != currentQuestion?.correctAnswer){
                 wrongAnswer()
                 return
-
             }
             val end = Intent(this, FinishActivity::class.java)
             startActivity(end)
@@ -106,9 +108,7 @@ class QuestionActivity : AppCompatActivity() {
         val wrong = Intent(this, WrongAnswerActivity::class.java)
         startActivity(wrong)
     }
-    fun scoreAdd(){
 
-    }
 }
 
 

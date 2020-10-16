@@ -12,7 +12,7 @@ open class QuestionListSavanna() {
 
         var questionOne = Questions(
             "What is this?",
-            "",
+            "Good Luck",
             R.drawable.zebra,
             R.drawable.savanna,
             "Horse",
