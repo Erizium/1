@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_finish.*
 
 class FinishActivity : AppCompatActivity() {
@@ -19,12 +20,13 @@ class FinishActivity : AppCompatActivity() {
         scoreButton.setOnClickListener {
             scoreText.setVisibility(View.VISIBLE)
             goodText.setVisibility(View.VISIBLE)
-            scoreButton.text = "To Start"
+            scoreButton.text = "Retry"
 
             if(score >= 4){
                 goodText.text = "Good Job!"
                 showView.setVisibility(View.INVISIBLE)
                 quitButton.setVisibility(View.VISIBLE)
+
                 if(score == 5){
                     goodText.text = "Perfect Score!"
                 }
@@ -36,6 +38,7 @@ class FinishActivity : AppCompatActivity() {
             scoreButton.setOnClickListener{
                 val surprise = Intent(this, QuestionActivity::class.java)
                 startActivity(surprise)
+                Toast.makeText(this, "Restarted", Toast.LENGTH_SHORT).show()
             }
         }
     }
