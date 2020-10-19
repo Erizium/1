@@ -35,31 +35,13 @@ class QuestionActivity : AppCompatActivity() {
         savannaQuiz.setOnClickListener {
             mp.start()
             setZebraQuestions()
-            savannaQuiz.setVisibility(View.INVISIBLE)
-            forestQuiz.setVisibility(View.INVISIBLE)
-
-            option_one.setVisibility(View.VISIBLE)
-            option_two.setVisibility(View.VISIBLE)
-            option_three.setVisibility(View.VISIBLE)
-            option_four.setVisibility(View.VISIBLE)
-            questionImage.setVisibility(View.VISIBLE)
-            questionCount.setVisibility(View.VISIBLE)
-            scoreCounter.setVisibility(View.VISIBLE)
+            setVisiInvis()
         }
         forestQuiz.setOnClickListener {
             mp2.start()
             setForestQuestions()
             type += 1
-            savannaQuiz.setVisibility(View.INVISIBLE)
-            forestQuiz.setVisibility(View.INVISIBLE)
-
-            option_one.setVisibility(View.VISIBLE)
-            option_two.setVisibility(View.VISIBLE)
-            option_four.setVisibility(View.VISIBLE)
-            option_three.setVisibility(View.VISIBLE)
-            questionImage.setVisibility(View.VISIBLE)
-            questionCount.setVisibility(View.VISIBLE)
-            scoreCounter.setVisibility(View.VISIBLE)
+            setVisiInvis()
         }
     }
 
@@ -123,10 +105,25 @@ class QuestionActivity : AppCompatActivity() {
         } else {
             mp.stop()
             mp2.stop()
+            score++
             val end = Intent(this, FinishActivity::class.java)
             end.putExtra("score", score)
             startActivity(end)
         }
+    }
+    fun setVisiInvis(){
+        savannaQuiz.setVisibility(View.INVISIBLE)
+        forestQuiz.setVisibility(View.INVISIBLE)
+
+        option_one.setVisibility(View.VISIBLE)
+        option_two.setVisibility(View.VISIBLE)
+        option_four.setVisibility(View.VISIBLE)
+        option_three.setVisibility(View.VISIBLE)
+        questionImage.setVisibility(View.VISIBLE)
+        questionCount.setVisibility(View.VISIBLE)
+        scoreCounter.setVisibility(View.VISIBLE)
+
+        return
     }
 }
 

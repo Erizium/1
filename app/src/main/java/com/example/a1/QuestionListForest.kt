@@ -12,7 +12,7 @@ class QuestionListForest {
         var questionOne = Questions(
             "Which country contains the majority \nof the Amazon Rainforest?",
             "Good Luck",
-            R.drawable.brazil,
+            R.drawable.brazil1,
             R.drawable.forest,
             "Peru",
             "Brazil",
@@ -24,7 +24,7 @@ class QuestionListForest {
         var questionTwo = Questions(
             "How much of the forest is \ncontained within Brazil?",
             "",
-            R.drawable.brazil,
+            R.drawable.brazil2,
             questionOne.background,
             "40 %",
             "70 %",
@@ -36,7 +36,7 @@ class QuestionListForest {
         var questionThree = Questions(
             " How many percent of the oxygen\n does the Brazil section produce?",
             "Roughly",
-            R.drawable.cloudo2,
+            R.drawable.o2,
             questionOne.background,
             "20 %",
             "12 %",
@@ -46,9 +46,9 @@ class QuestionListForest {
         questionList2.add(questionThree)
 
         var questionFour = Questions(
-            " What is producing the most\n most of oxygen there?  ",
+            " What species is producing the\n most oxygen there?  ",
             "",
-            R.drawable.cloudo2,
+            R.drawable.o2double,
             questionOne.background,
             "Plants",
             "Fungi",

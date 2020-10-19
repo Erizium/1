@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/questionBackground"
         app:layout_constraintVertical_bias="0.26"
-        app:srcCompat="@drawable/zebra" />
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <Button
         android:id="@+id/option_one"
@@ -96,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="292dp"
-        android:textColor="#786A6A"
+        android:textColor="#000000"
         android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

@@ -13,8 +13,8 @@ class MainActivity : AppCompatActivity() {
         val startButton = findViewById<Button>(R.id.startButton)
 
         startButton.setOnClickListener {
-            val intent = Intent(this, QuestionActivity::class.java)
-            startActivity(intent)
+            val questions = Intent(this, QuestionActivity::class.java)
+            startActivity(questions)
         }
 
     }
