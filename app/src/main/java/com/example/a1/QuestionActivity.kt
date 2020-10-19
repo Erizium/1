@@ -11,7 +11,7 @@ import android.widget.Button
 import kotlinx.android.synthetic.main.activity_question.*
 
 class QuestionActivity : AppCompatActivity() {
-
+    //music!
     private lateinit var mp: MediaPlayer
     private lateinit var mp2: MediaPlayer
     val questionList = QuestionListSavanna()
