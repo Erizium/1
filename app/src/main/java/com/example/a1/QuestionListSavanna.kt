@@ -1,6 +1,6 @@
 package com.example.a1
 
-open class QuestionListSavanna() {
+class QuestionListSavanna() {
 
     var questionList = mutableListOf<Questions>()
 
@@ -59,7 +59,7 @@ open class QuestionListSavanna() {
         questionList.add(questionFour)
 
         var questionFive = Questions(
-            "What is the average weight of \nof a full grown male zebra?",
+            "What is the average weight of\nof a full grown male zebra?",
             "They can't be that heavy right?",
             questionOne.image,
             questionOne.background,

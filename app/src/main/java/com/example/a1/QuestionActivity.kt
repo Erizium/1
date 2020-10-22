@@ -1,11 +1,14 @@
 package com.example.a1
 
 import android.content.Intent
+import android.graphics.Color
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 
 
 import kotlinx.android.synthetic.main.activity_question.*
@@ -36,12 +39,14 @@ class QuestionActivity : AppCompatActivity() {
             mp.start()
             setZebraQuestions()
             setVisiInvis()
+            colorChangeSavanna()
         }
         forestQuiz.setOnClickListener {
             mp2.start()
             setForestQuestions()
             type += 1
             setVisiInvis()
+            colorChangeForest()
         }
     }
 
@@ -103,11 +108,14 @@ class QuestionActivity : AppCompatActivity() {
                 }
             }
         } else {
+            if (button.text == currentQuestion?.correctAnswer){
+                score++
+            }
             mp.stop()
             mp2.stop()
-            score++
             val end = Intent(this, FinishActivity::class.java)
             end.putExtra("score", score)
+            finish()
             startActivity(end)
         }
     }
@@ -122,6 +130,42 @@ class QuestionActivity : AppCompatActivity() {
         questionImage.setVisibility(View.VISIBLE)
         questionCount.setVisibility(View.VISIBLE)
         scoreCounter.setVisibility(View.VISIBLE)
+
+        return
+    }
+    fun colorChangeForest(){
+
+        questionText.setTextColor(Color.parseColor("#ffffff"))
+        questionInfo.setTextColor(Color.parseColor("#ffffff"))
+        questionCount.setTextColor(Color.parseColor("#ffffff"))
+        scoreCounter.setTextColor(Color.parseColor("#ffffff"))
+
+        option_one.setTextColor(Color.parseColor("#ffffff"))
+        option_one.setBackgroundResource(R.drawable.rounded_corners_white)
+        option_two.setTextColor(Color.parseColor("#ffffff"))
+        option_two.setBackgroundResource(R.drawable.rounded_corners_white)
+        option_three.setTextColor(Color.parseColor("#ffffff"))
+        option_three.setBackgroundResource(R.drawable.rounded_corners_white)
+        option_four.setTextColor(Color.parseColor("#ffffff"))
+        option_four.setBackgroundResource(R.drawable.rounded_corners_white)
+
+        return
+    }
+    fun colorChangeSavanna(){
+
+        questionText.setTextColor(Color.parseColor("#000000"))
+        questionInfo.setTextColor(Color.parseColor("#000000"))
+        questionCount.setTextColor(Color.parseColor("#000000"))
+        scoreCounter.setTextColor(Color.parseColor("#000000"))
+
+        option_one.setTextColor(Color.parseColor("#000000"))
+        option_one.setBackgroundResource(R.drawable.rounded_corners_black)
+        option_two.setTextColor(Color.parseColor("#000000"))
+        option_two.setBackgroundResource(R.drawable.rounded_corners_black)
+        option_three.setTextColor(Color.parseColor("#000000"))
+        option_three.setBackgroundResource(R.drawable.rounded_corners_black)
+        option_four.setTextColor(Color.parseColor("#000000"))
+        option_four.setBackgroundResource(R.drawable.rounded_corners_black)
 
         return
     }

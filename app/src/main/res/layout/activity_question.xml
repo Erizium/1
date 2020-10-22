@@ -13,7 +13,7 @@
         android:background="@drawable/splitbg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -49,6 +49,7 @@
         android:id="@+id/option_two"
         android:layout_width="282dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:onClick="buttonPressed"
         android:text="Forest"
         android:visibility="invisible"
@@ -59,6 +60,7 @@
         android:id="@+id/option_three"
         android:layout_width="282dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:onClick="buttonPressed"
         android:text="Koala"
         android:visibility="invisible"
@@ -69,11 +71,41 @@
         android:id="@+id/option_four"
         android:layout_width="282dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:onClick="buttonPressed"
         android:text="Mohawk"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/option_three"
         app:layout_constraintTop_toBottomOf="@+id/option_three" />
+
+    <Button
+        android:id="@+id/savannaQuiz"
+        android:layout_width="95dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/rounded_corners_black"
+        android:onClick="buttonPressed"
+        android:text="Savanna"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionImage"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/forestQuiz"
+        android:layout_width="95dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="88dp"
+        android:background="@drawable/rounded_corners_white"
+        android:onClick="buttonPressed"
+        android:text="Forest"
+        android:textColor="#FFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionImage"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/questionText"
@@ -95,39 +127,14 @@
         android:id="@+id/questionInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="292dp"
         android:textColor="#000000"
         android:textColorHint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/option_one"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
-
-    <Button
-        android:id="@+id/savannaQuiz"
-        android:layout_width="95dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="120dp"
-        android:onClick="buttonPressed"
-        android:text="Savanna"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionImage"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/forestQuiz"
-        android:layout_width="95dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="88dp"
-        android:onClick="buttonPressed"
-        android:text="Forest"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionImage"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.811" />
 
     <TextView
         android:id="@+id/questionCount"
