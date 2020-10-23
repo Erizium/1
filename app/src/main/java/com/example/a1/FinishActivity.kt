@@ -15,6 +15,8 @@ class FinishActivity : AppCompatActivity() {
         setContentView(R.layout.activity_finish)
 
         var mp: MediaPlayer
+        var mp2: MediaPlayer
+        var mp3: MediaPlayer
 
         mp = MediaPlayer.create(this, R.raw.applause)
         mp.setVolume(0.5f, 0.5f)
@@ -46,12 +48,14 @@ class FinishActivity : AppCompatActivity() {
                 val surprise = Intent(this, QuestionActivity::class.java)
                 startActivity(surprise)
                 Toast.makeText(this, "Retried", Toast.LENGTH_SHORT).show()
+                mp.stop()
             }
         }
         titleButton.setOnClickListener {
             val titleScreen = Intent(this, MainActivity::class.java)
             startActivity(titleScreen)
             Toast.makeText(this, "Returned", Toast.LENGTH_SHORT).show()
+            mp.stop()
         }
     }
 }

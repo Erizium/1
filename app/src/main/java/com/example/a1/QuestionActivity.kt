@@ -28,12 +28,7 @@ class QuestionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
 
-        mp = MediaPlayer.create(this, R.raw.savanna)
-        mp.isLooping = true
-        mp.setVolume(0.5f, 0.5f)
-        mp2 = MediaPlayer.create(this, R.raw.forest)
-        mp2.isLooping = true
-        mp2.setVolume(0.5f, 0.5f)
+        quizMusic()
 
         savannaQuiz.setOnClickListener {
             mp.start()
@@ -166,6 +161,16 @@ class QuestionActivity : AppCompatActivity() {
         option_three.setBackgroundResource(R.drawable.rounded_corners_black)
         option_four.setTextColor(Color.parseColor("#000000"))
         option_four.setBackgroundResource(R.drawable.rounded_corners_black)
+
+        return
+    }
+    fun quizMusic(){
+        mp = MediaPlayer.create(this, R.raw.savanna)
+        mp.isLooping = true
+        mp.setVolume(0.5f, 0.5f)
+        mp2 = MediaPlayer.create(this, R.raw.forest)
+        mp2.isLooping = true
+        mp2.setVolume(0.5f, 0.5f)
 
         return
     }
