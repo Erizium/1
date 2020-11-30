@@ -20,7 +20,7 @@ interface QuestionDao {
     @Query("SELECT * FROM SavannaQuestions")
     fun getAll() : List<SavannaQuestion>
 
-    @Query("SELECT * FROM savannaQuestions WHERE question LIKE :questionName")
+    @Query("SELECT * FROM SavannaQuestions WHERE question LIKE :questionName")
     fun findByQuestion(questionName: String) : List<SavannaQuestion>
 
 }

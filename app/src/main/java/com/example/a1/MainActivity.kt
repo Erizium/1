@@ -29,8 +29,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
         val startButton = findViewById<Button>(R.id.startButton)
         startButton.setOnClickListener {
             val questions = Intent(this, QuestionActivity::class.java)
@@ -40,12 +38,11 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-        fun saveQuestions(question: SavannaQuestion) {
+        fun saveQuestions(savannaQuestion: SavannaQuestion) {
             GlobalScope.launch(Dispatchers.IO) {
-                db.questionDao().insert(question)
+                db.questionDao().insert(savannaQuestion)
             }
         }
-
 
 
     fun addQuestionsSavanna() {
