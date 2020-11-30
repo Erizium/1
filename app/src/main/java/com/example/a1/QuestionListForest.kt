@@ -2,14 +2,15 @@ package com.example.a1
 
 class QuestionListForest {
 
-    var questionList2 = mutableListOf<Questions>()
+    var questionList2 = mutableListOf<ForestQuestion>()
 
     init {
         getForestQuestions()
     }
 
     fun getForestQuestions(){
-        var questionOne = Questions(
+        var questionOne = ForestQuestion(
+            0,
             "Which country contains the majority\n of the Amazon Rainforest?",
             "Good Luck",
             R.drawable.brazil1,
@@ -21,7 +22,8 @@ class QuestionListForest {
             "Brazil")
         questionList2.add(questionOne)
 
-        var questionTwo = Questions(
+        var questionTwo = ForestQuestion(
+            0,
             "How much of the forest is\n contained within Brazil?",
             "Hint: Sesenta por ciento",
             R.drawable.brazil2,
@@ -33,7 +35,8 @@ class QuestionListForest {
             "60 %")
         questionList2.add(questionTwo)
 
-        var questionThree = Questions(
+        var questionThree = ForestQuestion(
+            0,
             " How many percent of the oxygen\n does the Brazil section produce?",
             "Hint: In the world",
             R.drawable.o2,
@@ -45,7 +48,8 @@ class QuestionListForest {
             "12 %")
         questionList2.add(questionThree)
 
-        var questionFour = Questions(
+        var questionFour = ForestQuestion(
+            0,
             " What species is producing the\n most oxygen there?  ",
             "Hint: They can grow tall or not at all",
             R.drawable.o2double,
@@ -57,7 +61,8 @@ class QuestionListForest {
             "Plants")
         questionList2.add(questionFour)
 
-        var questionFive = Questions(
+        var questionFive = ForestQuestion(
+            0,
             " How is the oxygen produced\n through plants?",
             "Hint: Draws up, takes in and then releases",
             R.drawable.tree,
