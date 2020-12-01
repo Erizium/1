@@ -9,16 +9,25 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.room.Room
 
 
 import kotlinx.android.synthetic.main.activity_question.*
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
-class QuestionActivity : AppCompatActivity() {
-    //music!
+class QuestionActivity : AppCompatActivity() , CoroutineScope {
+    private lateinit var job : Job
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
+
+    private lateinit var db: AppDatabase
     private lateinit var mp: MediaPlayer
     private lateinit var mp2: MediaPlayer
-    val questionList = QuestionListSavanna()
-    val questionList2 = QuestionListForest()
+
+    var questionList : QuestionList? = null
+    var questionList2 = QuestionListForest()
+
     var currentQuestion: Questions? = null
     var currentPosition: Int = 1
     var score = 0
@@ -28,25 +37,54 @@ class QuestionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
 
+
+        //db = AppDatabase.getInstance(this)!!          ????
+
+        db = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java,
+            "AppQuestions")
+            .fallbackToDestructiveMigration()
+            .build()
+
+        job = Job()
+
         quizMusic()
 
         savannaQuiz.setOnClickListener {
             mp.start()
-            setZebraQuestions()
+         //   setZebraQuestions()
             setVisiInvis()
             colorChangeSavanna()
+
+            loadQuestions()
         }
         forestQuiz.setOnClickListener {
             mp2.start()
-            setForestQuestions()
+         //   setForestQuestions()
             type += 1
             setVisiInvis()
             colorChangeForest()
         }
     }
 
+    fun loadQuestions(){
+        val questions = async(Dispatchers.IO) {
+            db.questionDao().getAll()
+        }
+        launch {
+            val list = questions.await().toMutableList()
+
+                questionList = QuestionList(list)
+
+                setZebraQuestions()
+
+        }
+    }
+
+
     fun setZebraQuestions() {
-        currentQuestion = questionList.questionList[currentPosition -1]
+        currentQuestion = questionList!!.questions[currentPosition -1]
 
         questionText.text = currentQuestion!!.question
         questionInfo.text = currentQuestion!!.info
@@ -82,7 +120,7 @@ class QuestionActivity : AppCompatActivity() {
     fun buttonPressed(view: View) {
         var button = view as Button
 
-        if (currentPosition <= questionList.questionList.size) {
+        if (currentPosition <= questionList!!.questions.size) {
             if (type == 0) {
                 if (button.text == currentQuestion?.correctAnswer) {
                     questionCount.text = currentPosition.toString()
@@ -114,6 +152,7 @@ class QuestionActivity : AppCompatActivity() {
             startActivity(end)
         }
     }
+
     fun setVisiInvis(){
         savannaQuiz.setVisibility(View.INVISIBLE)
         forestQuiz.setVisibility(View.INVISIBLE)

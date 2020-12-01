@@ -19,18 +19,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "AppQuestions"
-        )
-            .fallbackToDestructiveMigration()
-            .build()
-
 
         Log.d(TAG, "Starting")
 
-     //   addSavannaQuestions()
-      //  addForestQuestions()
 
         val startButton = findViewById<Button>(R.id.startButton)
         startButton.setOnClickListener {
@@ -38,6 +29,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(questions)
         }
     }
+
+
+
+
+
+
     fun addQuestions(question: Questions){
         GlobalScope.launch(Dispatchers.IO){
             db.questionDao().insert(question)

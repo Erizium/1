@@ -2,14 +2,15 @@ package com.example.a1
 
 class QuestionListSavanna() {
 
-    var questionList = mutableListOf<Questions>()
+
+   // var questionList = mutableListOf<Questions>()
 
     init {
         getZebraQuestions()
     }
 
     fun getZebraQuestions() {
-
+/*
         var questionOne = Questions(
             0,
             "What is this?",
@@ -79,5 +80,9 @@ class QuestionListSavanna() {
             "320 kg",
             "savanna")
         questionList.add(questionFive)
+
+        */
     }
+
+
 }
