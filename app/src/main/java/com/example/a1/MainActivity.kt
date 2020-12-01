@@ -13,7 +13,6 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
-    val TAG = "!!!"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,12 +22,6 @@ class MainActivity : AppCompatActivity() {
 
             val questions = Intent(this, QuestionActivity::class.java)
             startActivity(questions)
-        }
-    }
-
-    fun addQuestions(question: Questions){
-        GlobalScope.launch(Dispatchers.IO){
-            db.questionDao().insert(question)
         }
     }
 }
