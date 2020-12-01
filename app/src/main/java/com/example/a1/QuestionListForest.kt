@@ -19,8 +19,7 @@ class QuestionListForest {
             "Brazil",
             "Colombia",
             "France",
-            "Brazil",
-            "forest")
+            "Brazil", "forest")
         questionList2.add(questionOne)
 
         var questionTwo = Questions(
@@ -33,8 +32,7 @@ class QuestionListForest {
             "70 %",
             "60 %",
             "65 %",
-            "60 %",
-            "forest")
+            "60 %","forest")
         questionList2.add(questionTwo)
 
         var questionThree = Questions(
@@ -47,8 +45,7 @@ class QuestionListForest {
             "12 %",
             "6 %",
             "10 %",
-            "12 %",
-            "forest")
+            "12 %","forest")
         questionList2.add(questionThree)
 
         var questionFour = Questions(
@@ -61,8 +58,7 @@ class QuestionListForest {
             "Fungi",
             "Animal",
             "Dirt",
-            "Plants",
-            "forest")
+            "Plants","forest")
         questionList2.add(questionFour)
 
         var questionFive = Questions(
