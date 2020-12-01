@@ -1,5 +1,6 @@
 package com.example.a1
 
+
 class Questions(
     var question : String,
     var info : String,
