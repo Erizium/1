@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 
 
 import kotlinx.android.synthetic.main.activity_question.*
@@ -20,6 +18,7 @@ class QuestionActivity : AppCompatActivity() {
     val questionList = QuestionListSavanna()
     val questionList2 = QuestionListForest()
     var currentQuestion: Questions? = null
+    //var currentQuestion2: Questions? = null
     var currentPosition: Int = 1
     var score = 0
     var type = 0
@@ -53,7 +52,7 @@ class QuestionActivity : AppCompatActivity() {
         questionImage.setImageResource(currentQuestion!!.image)
         questionBackground.setBackgroundResource(currentQuestion!!.background)
         option_one.text = currentQuestion?.optionOne
-        option_two.text = currentQuestion?.OptionTwo
+        option_two.text = currentQuestion?.optionTwo
         option_three.text = currentQuestion?.optionThree
         option_four.text = currentQuestion?.optionFour
         questionCount.text = "Question: " + currentPosition.toString()
@@ -70,7 +69,7 @@ class QuestionActivity : AppCompatActivity() {
         questionImage.setImageResource(currentQuestion!!.image)
         questionBackground.setBackgroundResource(currentQuestion!!.background)
         option_one.text = currentQuestion?.optionOne
-        option_two.text = currentQuestion?.OptionTwo
+        option_two.text = currentQuestion?.optionTwo
         option_three.text = currentQuestion?.optionThree
         option_four.text = currentQuestion?.optionFour
         questionCount.text = "Question: " + currentPosition.toString()

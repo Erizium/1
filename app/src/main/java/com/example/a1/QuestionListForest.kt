@@ -10,6 +10,7 @@ class QuestionListForest {
 
     fun getForestQuestions(){
         var questionOne = Questions(
+            1,
             "Which country contains the majority\n of the Amazon Rainforest?",
             "Good Luck",
             R.drawable.brazil1,
@@ -18,10 +19,12 @@ class QuestionListForest {
             "Brazil",
             "Colombia",
             "France",
-            "Brazil")
+            "Brazil",
+            "Forest")
         questionList2.add(questionOne)
 
         var questionTwo = Questions(
+            2,
             "How much of the forest is\n contained within Brazil?",
             "Hint: Sesenta por ciento",
             R.drawable.brazil2,
@@ -30,10 +33,12 @@ class QuestionListForest {
             "70 %",
             "60 %",
             "65 %",
-            "60 %")
+            "60 %",
+            "Forest")
         questionList2.add(questionTwo)
 
         var questionThree = Questions(
+            3,
             " How many percent of the oxygen\n does the Brazil section produce?",
             "Hint: In the world",
             R.drawable.o2,
@@ -42,10 +47,12 @@ class QuestionListForest {
             "12 %",
             "6 %",
             "10 %",
-            "12 %")
+            "12 %",
+            "Forest")
         questionList2.add(questionThree)
 
         var questionFour = Questions(
+            4,
             " What species is producing the\n most oxygen there?  ",
             "Hint: They can grow tall or not at all",
             R.drawable.o2double,
@@ -54,10 +61,12 @@ class QuestionListForest {
             "Fungi",
             "Animal",
             "Dirt",
-            "Plants")
+            "Plants",
+            "Forest")
         questionList2.add(questionFour)
 
         var questionFive = Questions(
+            5,
             " How is the oxygen produced\n through plants?",
             "Hint: Draws up, takes in and then releases",
             R.drawable.tree,
@@ -66,7 +75,8 @@ class QuestionListForest {
             "Uranium",
             "Absorbtion",
             "Photosynthesis",
-            "Photosynthesis")
+            "Photosynthesis",
+            "Forest")
         questionList2.add(questionFive)
     }
 }

@@ -1,13 +1,20 @@
 package com.example.a1
 
-class Questions(
-    var question : String,
-    var info : String,
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "Questions")
+data class Questions(
+    @PrimaryKey(autoGenerate = true) var id: Int,
+    @ColumnInfo(name = "question") var question : String,
+    @ColumnInfo(name = "info") var info : String,
     var image : Int,
     var background : Int,
-    var optionOne : String,
-    var OptionTwo : String,
-    var optionThree : String,
-    var optionFour : String,
-    var correctAnswer : String) {
+    @ColumnInfo(name = "optionOne") var optionOne : String,
+    @ColumnInfo(name = "optionTwo") var optionTwo : String,
+    @ColumnInfo(name = "optionThree") var optionThree : String,
+    @ColumnInfo(name = "optionFour") var optionFour : String,
+    @ColumnInfo(name = "correctAnswer") var correctAnswer : String,
+    @ColumnInfo(name = "category") var category : String) {
 }
