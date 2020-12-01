@@ -53,7 +53,7 @@ class QuestionActivity : AppCompatActivity() {
         questionImage.setImageResource(currentQuestion!!.image)
         questionBackground.setBackgroundResource(currentQuestion!!.background)
         option_one.text = currentQuestion?.optionOne
-        option_two.text = currentQuestion?.OptionTwo
+        option_two.text = currentQuestion?.optionTwo
         option_three.text = currentQuestion?.optionThree
         option_four.text = currentQuestion?.optionFour
         questionCount.text = "Question: " + currentPosition.toString()
@@ -70,7 +70,7 @@ class QuestionActivity : AppCompatActivity() {
         questionImage.setImageResource(currentQuestion!!.image)
         questionBackground.setBackgroundResource(currentQuestion!!.background)
         option_one.text = currentQuestion?.optionOne
-        option_two.text = currentQuestion?.OptionTwo
+        option_two.text = currentQuestion?.optionTwo
         option_three.text = currentQuestion?.optionThree
         option_four.text = currentQuestion?.optionFour
         questionCount.text = "Question: " + currentPosition.toString()
