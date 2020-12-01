@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_question.*
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-class QuestionActivity : AppCompatActivity() , CoroutineScope {
+class QuestionActivity : AppCompatActivity(), CoroutineScope {
     private lateinit var job : Job
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job
@@ -26,7 +26,6 @@ class QuestionActivity : AppCompatActivity() , CoroutineScope {
     private lateinit var mp2: MediaPlayer
 
     var questionList : QuestionList? = null
-    var questionList2 = QuestionListForest()
 
     var currentQuestion: Questions? = null
     var currentPosition: Int = 1
@@ -37,9 +36,7 @@ class QuestionActivity : AppCompatActivity() , CoroutineScope {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
 
-
-        //db = AppDatabase.getInstance(this)!!          ????
-
+        job = Job()
         db = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java,
@@ -47,13 +44,10 @@ class QuestionActivity : AppCompatActivity() , CoroutineScope {
             .fallbackToDestructiveMigration()
             .build()
 
-        job = Job()
-
         quizMusic()
 
         savannaQuiz.setOnClickListener {
             mp.start()
-         //   setZebraQuestions()
             setVisiInvis()
             colorChangeSavanna()
 
@@ -61,47 +55,40 @@ class QuestionActivity : AppCompatActivity() , CoroutineScope {
         }
         forestQuiz.setOnClickListener {
             mp2.start()
-         //   setForestQuestions()
             type += 1
             setVisiInvis()
             colorChangeForest()
+
+            loadQuestions2()
         }
     }
 
     fun loadQuestions(){
         val questions = async(Dispatchers.IO) {
-            db.questionDao().getAll()
+            db.questionDao().category("savanna")
         }
         launch {
             val list = questions.await().toMutableList()
+            questionList = QuestionList(list)
 
-                questionList = QuestionList(list)
-
-                setZebraQuestions()
-
+            setQuestions()
         }
     }
 
+    fun loadQuestions2(){
+        val questions = async(Dispatchers.IO) {
+            db.questionDao().category2("forest")
+        }
+        launch {
+            val list = questions.await().toMutableList()
+            questionList = QuestionList(list)
 
-    fun setZebraQuestions() {
-        currentQuestion = questionList!!.questions[currentPosition -1]
-
-        questionText.text = currentQuestion!!.question
-        questionInfo.text = currentQuestion!!.info
-        questionImage.setImageResource(currentQuestion!!.image)
-        questionBackground.setBackgroundResource(currentQuestion!!.background)
-        option_one.text = currentQuestion?.optionOne
-        option_two.text = currentQuestion?.optionTwo
-        option_three.text = currentQuestion?.optionThree
-        option_four.text = currentQuestion?.optionFour
-        questionCount.text = "Question: " + currentPosition.toString()
-
-        scoreCounter.text = "Score: " + score
-        currentPosition++
+            setQuestions()
+        }
     }
 
-    fun setForestQuestions() {
-        currentQuestion = questionList2.questionList2[currentPosition -1]
+    fun setQuestions() {
+        currentQuestion = questionList!!.questions[currentPosition -1]
 
         questionText.text = currentQuestion!!.question
         questionInfo.text = currentQuestion!!.info
@@ -125,19 +112,19 @@ class QuestionActivity : AppCompatActivity() , CoroutineScope {
                 if (button.text == currentQuestion?.correctAnswer) {
                     questionCount.text = currentPosition.toString()
                     score++
-                    setZebraQuestions()
+                    setQuestions()
                 } else {
                     questionCount.text = currentPosition.toString()
-                    setZebraQuestions()
+                    setQuestions()
                 }
             } else {
                 if (button.text == currentQuestion?.correctAnswer) {
                     questionCount.text = currentPosition.toString()
                     score++
-                    setForestQuestions()
+                    setQuestions()
                 } else {
                     questionCount.text = currentPosition.toString()
-                    setForestQuestions()
+                    setQuestions()
                 }
             }
         } else {
@@ -167,6 +154,7 @@ class QuestionActivity : AppCompatActivity() , CoroutineScope {
 
         return
     }
+
     fun colorChangeForest(){
 
         questionText.setTextColor(Color.parseColor("#ffffff"))
@@ -185,6 +173,7 @@ class QuestionActivity : AppCompatActivity() , CoroutineScope {
 
         return
     }
+
     fun colorChangeSavanna(){
 
         questionText.setTextColor(Color.parseColor("#000000"))
@@ -203,6 +192,7 @@ class QuestionActivity : AppCompatActivity() , CoroutineScope {
 
         return
     }
+
     fun quizMusic(){
         mp = MediaPlayer.create(this, R.raw.savanna)
         mp.isLooping = true
