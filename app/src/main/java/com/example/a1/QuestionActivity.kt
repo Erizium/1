@@ -44,30 +44,40 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
             .fallbackToDestructiveMigration()
             .build()
 
+
         quizMusic()
 
         savannaQuiz.setOnClickListener {
+            if(mp.isPlaying || mp2.isPlaying){
+                mp.stop()
+                mp2.stop()
+            }
             mp.start()
             setVisiInvis()
             colorChangeSavanna()
 
-            loadQuestions()
+            loadSavannaQuestions()
         }
         forestQuiz.setOnClickListener {
+            if(mp.isPlaying || mp2.isPlaying){
+                mp.stop()
+                mp2.stop()
+            }
             mp2.start()
             type += 1
             setVisiInvis()
             colorChangeForest()
 
-            loadQuestions2()
+            loadForestQuestions()
         }
     }
 
-    fun loadQuestions(){
+    fun loadSavannaQuestions(){
         val questions = async(Dispatchers.IO) {
             db.questionDao().category("savanna")
         }
         launch {
+
             val list = questions.await().toMutableList()
             questionList = QuestionList(list)
 
@@ -75,14 +85,14 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
         }
     }
 
-    fun loadQuestions2(){
+    fun loadForestQuestions(){
         val questions = async(Dispatchers.IO) {
             db.questionDao().category2("forest")
         }
         launch {
+
             val list = questions.await().toMutableList()
             questionList = QuestionList(list)
-
             setQuestions()
         }
     }

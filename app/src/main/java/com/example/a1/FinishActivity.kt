@@ -1,11 +1,14 @@
 package com.example.a1
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.sqlite.db.SupportSQLiteOpenHelper.Configuration.builder
 import kotlinx.android.synthetic.main.activity_finish.*
 
 class FinishActivity : AppCompatActivity() {
@@ -15,8 +18,6 @@ class FinishActivity : AppCompatActivity() {
         setContentView(R.layout.activity_finish)
 
         var mp: MediaPlayer
-        var mp2: MediaPlayer
-        var mp3: MediaPlayer
 
         mp = MediaPlayer.create(this, R.raw.applause)
         mp.setVolume(0.5f, 0.5f)
@@ -52,6 +53,7 @@ class FinishActivity : AppCompatActivity() {
             }
         }
         titleButton.setOnClickListener {
+
             val titleScreen = Intent(this, MainActivity::class.java)
             startActivity(titleScreen)
             Toast.makeText(this, "Returned", Toast.LENGTH_SHORT).show()
